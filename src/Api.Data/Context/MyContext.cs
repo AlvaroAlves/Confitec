@@ -9,6 +9,9 @@ namespace Api.Data.Context
 {
     public class MyContext : DbContext
     {
-        public DbSet<UsuarioEntity> MyProperty { get; set; }
+        public DbSet<UsuarioEntity> Usuarios { get; set; }
+        public DbSet<EscolaridadeEntity> Escolaridade {get;set;}
+        public DbSet<HistoricoEscolarEntity> HistoricoEscolar { get; set; }
+
     }
 }

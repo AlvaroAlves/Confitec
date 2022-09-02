@@ -13,5 +13,10 @@ namespace Api.Data.Context
         public DbSet<EscolaridadeEntity> Escolaridade {get;set;}
         public DbSet<HistoricoEscolarEntity> HistoricoEscolar { get; set; }
 
+        public MyContext(DbContextOptions<MyContext> options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder builder){
+            base.OnModelCreating(builder);
+        }
     }
 }

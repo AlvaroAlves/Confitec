@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Api.Domain.Entities
 {
-    public class Escolaridade : BaseEntity
+    public class EscolaridadeEntity : BaseEntity
     {
         public string Descricao { get; set; }
     }

@@ -12,7 +12,7 @@ namespace Api.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<EscolaridadeEntity> builder)
         {
-            builder.ToTable("Escolaridade");
+            builder.ToTable("Escolaridades");
 
             builder.HasKey(k => k.Id);
         

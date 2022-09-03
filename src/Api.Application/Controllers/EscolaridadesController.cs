@@ -34,7 +34,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}", Name = "GetById")]
+        [Route("{id}", Name = "GetEscolaridadeById")]
         public async Task<ActionResult> Get(int id){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -57,7 +57,7 @@ namespace Api.Application.Controllers
                 var res = await _service.Post(escolaridade);
                 if(res == null)
                     return BadRequest();
-                return Created(new Uri(Url.Link("GetById", new {id = res.Id })), res);
+                return Created(new Uri(Url.Link("GetEscolaridadeById", new {id = res.Id })), res);
             }
             catch (ArgumentException e)
             {

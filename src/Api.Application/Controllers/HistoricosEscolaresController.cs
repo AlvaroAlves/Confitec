@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Api.Domain.Dtos.HistoricosEscolares;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.HistoricosEscolares;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +35,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}", Name = "GetById")]
+        [Route("{id}", Name = "GetHistoricoEscolarById")]
         public async Task<ActionResult> Get(int id){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -49,7 +50,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] HistoricoEscolarEntity historicoEscolar){
+        public async Task<ActionResult> Post([FromBody] HistoricoEscolarDto historicoEscolar){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
@@ -57,7 +58,7 @@ namespace Api.Application.Controllers
                 var res = await _service.Post(historicoEscolar);
                 if(res == null)
                     return BadRequest();
-                return Created(new Uri(Url.Link("GetById", new {id = res.Id })), res);
+                return Created(new Uri(Url.Link("GetHistoricoEscolarById", new {id = res.Id })), res);
             }
             catch (ArgumentException e)
             {
@@ -66,7 +67,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] HistoricoEscolarEntity historicoEscolar){
+        public async Task<ActionResult> Update([FromBody] HistoricoEscolarDto historicoEscolar){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try

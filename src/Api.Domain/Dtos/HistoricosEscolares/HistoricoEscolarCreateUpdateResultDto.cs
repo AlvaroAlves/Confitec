@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Api.Domain.Interfaces;
 
-namespace Api.Domain.Dtos.Escolaridades
+namespace Api.Domain.Dtos.HistoricosEscolares
 {
-    public class EscolaridadeCreateUpdateDto : EscolaridadeDto, IDtoBase
+    public class HistoricoEscolarCreateUpdateResultDto : HistoricoEscolarDto, IDtoBase
     {
         public int Id { get; set; }
         public DateTime CreateAt { get; set; }

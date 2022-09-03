@@ -36,13 +36,62 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id}", Name = "GetById")]
         public async Task<ActionResult> Get(int id){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
             {
                 return Ok(await _service.Get(id));
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] UsuarioEntity usuario){
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            try
+            {
+                var res = await _service.Post(usuario);
+                if(res == null)
+                    return BadRequest();
+                return Created(new Uri(Url.Link("GetById", new {id = res.Id })), res);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody] UsuarioEntity usuario){
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            try
+            {
+                var res = await _service.Put(usuario);
+                if(res == null)
+                    return BadRequest();    
+                return Ok(res);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult> Delete(int id){
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            try
+            {
+                return Ok(await _service.Delete(id));
             }
             catch (ArgumentException e)
             {

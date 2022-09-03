@@ -15,7 +15,8 @@ namespace Api.Data.Mapping
             builder.ToTable("Escolaridades");
 
             builder.HasKey(k => k.Id);
-        
+            builder.Property(e => e.Id)
+                    .ValueGeneratedOnAdd();
             builder.Property(e => e.Descricao)
                     .IsRequired()
                     .HasMaxLength(12);

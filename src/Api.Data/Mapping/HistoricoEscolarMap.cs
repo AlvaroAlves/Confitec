@@ -15,7 +15,8 @@ namespace Api.Data.Mapping
             builder.ToTable("HistoricosEscolares");
 
             builder.HasKey(k => k.Id);
-                    
+            builder.Property(h => h.Id)
+                    .ValueGeneratedOnAdd();        
             builder.Property(h => h.Nome)
                     .IsRequired()
                     .HasMaxLength(60);

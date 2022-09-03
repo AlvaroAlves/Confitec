@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Api.Domain.Dtos.Usuarios;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.Usuarios;
 using Microsoft.AspNetCore.Mvc;
@@ -51,7 +52,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UsuarioEntity usuario){
+        public async Task<ActionResult> Post([FromBody] UsuarioDto usuario){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
@@ -68,7 +69,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] UsuarioEntity usuario){
+        public async Task<ActionResult> Update([FromBody] UsuarioDto usuario){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try

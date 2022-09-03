@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Api.Domain.Dtos.Escolaridades;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.Escolaridades;
 using Microsoft.AspNetCore.Mvc;
@@ -49,7 +50,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] EscolaridadeEntity escolaridade){
+        public async Task<ActionResult> Post([FromBody] EscolaridadeDto escolaridade){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
@@ -66,7 +67,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] EscolaridadeEntity escolaridade){
+        public async Task<ActionResult> Update([FromBody] EscolaridadeDto escolaridade){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try

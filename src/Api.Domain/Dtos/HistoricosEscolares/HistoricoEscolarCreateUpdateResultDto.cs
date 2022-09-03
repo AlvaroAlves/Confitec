@@ -6,10 +6,6 @@ using Api.Domain.Interfaces;
 
 namespace Api.Domain.Dtos.HistoricosEscolares
 {
-    public class HistoricoEscolarCreateUpdateResultDto : HistoricoEscolarDto, IDtoBase
-    {
-        public int Id { get; set; }
-        public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-    }
+    public class HistoricoEscolarCreateUpdateResultDto : HistoricoEscolarDto
+    { }
 }

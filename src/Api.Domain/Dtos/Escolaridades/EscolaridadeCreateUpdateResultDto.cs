@@ -6,10 +6,7 @@ using Api.Domain.Interfaces;
 
 namespace Api.Domain.Dtos.Escolaridades
 {
-    public class EscolaridadeCreateUpdateResultDto : EscolaridadeDto, IDtoBase
+    public class EscolaridadeCreateUpdateResultDto : EscolaridadeDto
     {
-        public int Id { get; set; }
-        public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; }
     }
 }

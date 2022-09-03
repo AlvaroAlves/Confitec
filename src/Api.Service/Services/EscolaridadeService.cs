@@ -38,7 +38,7 @@ namespace Api.Service.Services
             return _mapper.Map<IEnumerable<EscolaridadeDto>>(listEntities);
         }
 
-        public async Task<EscolaridadeCreateUpdateResultDto> Post(EscolaridadeDto escolaridade)
+        public async Task<EscolaridadeCreateUpdateResultDto> Post(EscolaridadeCreateDto escolaridade)
         {
             var model = _mapper.Map<EscolaridadeModel>(escolaridade);
             var entity = _mapper.Map<EscolaridadeEntity>(model);
@@ -46,7 +46,7 @@ namespace Api.Service.Services
             return _mapper.Map<EscolaridadeCreateUpdateResultDto>(result);
         }
 
-        public async Task<EscolaridadeCreateUpdateResultDto> Put(EscolaridadeDto escolaridade)
+        public async Task<EscolaridadeCreateUpdateResultDto> Put(EscolaridadeUpdateDto escolaridade)
         {
             var model = _mapper.Map<EscolaridadeModel>(escolaridade);
             var entity = _mapper.Map<EscolaridadeEntity>(model);

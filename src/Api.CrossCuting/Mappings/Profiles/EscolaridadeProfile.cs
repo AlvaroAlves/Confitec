@@ -15,6 +15,8 @@ namespace Api.CrossCuting.Mappings
         {
             //DtoToModel
             CreateMap<EscolaridadeModel, EscolaridadeDto>().ReverseMap();
+            CreateMap<EscolaridadeModel, EscolaridadeCreateDto>().ReverseMap();
+            CreateMap<EscolaridadeModel, EscolaridadeUpdateDto>().ReverseMap();
             //EntityToDto
             CreateMap<EscolaridadeDto, EscolaridadeEntity>().ReverseMap();
             CreateMap<EscolaridadeCreateUpdateResultDto, EscolaridadeEntity>().ReverseMap();

@@ -11,8 +11,8 @@ namespace Api.Domain.Interfaces.Services.Escolaridades
     {
         Task<EscolaridadeDto> Get (int id);
         Task<IEnumerable<EscolaridadeDto>> GetAll();
-        Task<EscolaridadeCreateUpdateResultDto> Post(EscolaridadeDto escolaridade);
-        Task<EscolaridadeCreateUpdateResultDto> Put(EscolaridadeDto escolaridade);
+        Task<EscolaridadeCreateUpdateResultDto> Post(EscolaridadeCreateDto escolaridade);
+        Task<EscolaridadeCreateUpdateResultDto> Put(EscolaridadeUpdateDto escolaridade);
         Task<bool> Delete(int id);
     }
 }

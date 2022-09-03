@@ -50,7 +50,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] EscolaridadeDto escolaridade){
+        public async Task<ActionResult> Post([FromBody] EscolaridadeCreateDto escolaridade){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
@@ -67,7 +67,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] EscolaridadeDto escolaridade){
+        public async Task<ActionResult> Update([FromBody] EscolaridadeUpdateDto escolaridade){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try

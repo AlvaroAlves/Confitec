@@ -14,12 +14,19 @@ namespace Api.Application.Controllers
     [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
     {
-        public async Task<ActionResult> GetAll([FromServices] IUsuarioService service){
+        private IUsuarioService _service;
+        public UsuariosController(IUsuarioService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAll(){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
             {
-                return Ok(await service.GetAll());
+                return Ok(await _service.GetAll());
             }
             catch (ArgumentException e)
             {

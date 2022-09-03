@@ -52,7 +52,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] UsuarioDto usuario){
+        public async Task<ActionResult> Post([FromBody] UsuarioCreateDto usuario){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
@@ -69,7 +69,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] UsuarioDto usuario){
+        public async Task<ActionResult> Update([FromBody] UsuarioUpdateDto usuario){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try

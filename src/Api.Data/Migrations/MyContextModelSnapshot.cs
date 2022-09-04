@@ -34,6 +34,9 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(12)")
                         .HasMaxLength(12);
 
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
@@ -53,9 +56,14 @@ namespace Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Formato")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(4)")
-                        .HasMaxLength(4);
+                        .HasColumnType("nvarchar(5)")
+                        .HasMaxLength(5);
+
+                    b.Property<string>("HistoricoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -87,10 +95,10 @@ namespace Data.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("EscolaridadeId")
+                    b.Property<int?>("EscolaridadeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HistoricoEscolarId")
+                    b.Property<int?>("HistoricoEscolarId")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -111,7 +119,26 @@ namespace Data.Migrations
                         .IsUnique()
                         .HasFilter("[Email] IS NOT NULL");
 
+                    b.HasIndex("EscolaridadeId")
+                        .IsUnique()
+                        .HasFilter("[EscolaridadeId] IS NOT NULL");
+
+                    b.HasIndex("HistoricoEscolarId")
+                        .IsUnique()
+                        .HasFilter("[HistoricoEscolarId] IS NOT NULL");
+
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Api.Domain.Entities.UsuarioEntity", b =>
+                {
+                    b.HasOne("Api.Domain.Entities.EscolaridadeEntity", "Escolaridade")
+                        .WithOne()
+                        .HasForeignKey("Api.Domain.Entities.UsuarioEntity", "EscolaridadeId");
+
+                    b.HasOne("Api.Domain.Entities.HistoricoEscolarEntity", "HistoricoEscolar")
+                        .WithOne()
+                        .HasForeignKey("Api.Domain.Entities.UsuarioEntity", "HistoricoEscolarId");
                 });
 #pragma warning restore 612, 618
         }

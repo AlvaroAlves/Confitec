@@ -1,4 +1,4 @@
-using Api.Data.Mapping;
+using Api.Data.DatabaseMapping;
 using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 

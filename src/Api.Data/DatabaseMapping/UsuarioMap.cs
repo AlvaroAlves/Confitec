@@ -2,7 +2,7 @@ using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Api.Data.Mapping
+namespace Api.Data.DatabaseMapping
 {
     public class UsuarioMap : IEntityTypeConfiguration<UsuarioEntity>
     {
@@ -23,6 +23,9 @@ namespace Api.Data.Mapping
                     .HasMaxLength(100);
             builder.Property(u => u.Sobrenome)
                     .HasMaxLength(100);
+        
+            builder.HasOne(u => u.HistoricoEscolar).WithOne();
+            builder.HasOne(u => u.Escolaridade).WithOne();
         }
     }
 }

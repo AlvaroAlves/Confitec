@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Usuarios;
 using Api.Domain.Entities;
@@ -37,7 +35,7 @@ namespace Api.Service.Services
             return _mapper.Map<IEnumerable<UsuarioDto>>(listEntities);
         }
 
-        public async Task<UsuarioCreateUpdateResultDto> Post(UsuarioDto usuario)
+        public async Task<UsuarioCreateUpdateResultDto> Post(UsuarioCreateDto usuario)
         {
             var model = _mapper.Map<UsuarioModel>(usuario);
             var entity = _mapper.Map<UsuarioEntity>(model);
@@ -45,7 +43,7 @@ namespace Api.Service.Services
             return _mapper.Map<UsuarioCreateUpdateResultDto>(result);
         }
 
-        public async Task<UsuarioCreateUpdateResultDto> Put(UsuarioDto usuario)
+        public async Task<UsuarioCreateUpdateResultDto> Put(UsuarioUpdateDto usuario)
         {
             var model = _mapper.Map<UsuarioModel>(usuario);
             var entity = _mapper.Map<UsuarioEntity>(model);

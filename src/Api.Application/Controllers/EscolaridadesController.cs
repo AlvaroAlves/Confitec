@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Escolaridades;
-using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.Escolaridades;
 using Microsoft.AspNetCore.Mvc;
 

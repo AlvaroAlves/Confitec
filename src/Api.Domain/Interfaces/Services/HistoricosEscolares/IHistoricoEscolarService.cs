@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.HistoricosEscolares;
-using Api.Domain.Entities;
 
 namespace Api.Domain.Interfaces.Services.HistoricosEscolares
 {
@@ -11,8 +8,8 @@ namespace Api.Domain.Interfaces.Services.HistoricosEscolares
     {
         Task<HistoricoEscolarDto> Get (int id);
         Task<IEnumerable<HistoricoEscolarDto>> GetAll();
-        Task<HistoricoEscolarCreateUpdateResultDto> Post(HistoricoEscolarDto historicoEscolar);
-        Task<HistoricoEscolarCreateUpdateResultDto> Put(HistoricoEscolarDto historicoEscolar);
+        Task<HistoricoEscolarCreateUpdateResultDto> Post(HistoricoEscolarCreateDto historicoEscolar);
+        Task<HistoricoEscolarCreateUpdateResultDto> Put(HistoricoEscolarUpdateDto historicoEscolar);
         Task<bool> Delete(int id);
     }
 }

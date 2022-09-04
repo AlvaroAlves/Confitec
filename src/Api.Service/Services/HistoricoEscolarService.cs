@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.HistoricosEscolares;
 using Api.Domain.Entities;
@@ -37,7 +35,7 @@ namespace Api.Service.Services
             return _mapper.Map<IEnumerable<HistoricoEscolarDto>>(listEntity);
         }
 
-        public async Task<HistoricoEscolarCreateUpdateResultDto> Post(HistoricoEscolarDto historicoEscolar)
+        public async Task<HistoricoEscolarCreateUpdateResultDto> Post(HistoricoEscolarCreateDto historicoEscolar)
         {
             var model = _mapper.Map<HistoricoEscolarModel>(historicoEscolar);
             var entity = _mapper.Map<HistoricoEscolarEntity>(model);
@@ -45,7 +43,7 @@ namespace Api.Service.Services
             return _mapper.Map<HistoricoEscolarCreateUpdateResultDto>(result);
         }
 
-        public async Task<HistoricoEscolarCreateUpdateResultDto> Put(HistoricoEscolarDto historicoEscolar)
+        public async Task<HistoricoEscolarCreateUpdateResultDto> Put(HistoricoEscolarUpdateDto historicoEscolar)
         {
             var model = _mapper.Map<HistoricoEscolarModel>(historicoEscolar);
             var entity = _mapper.Map<HistoricoEscolarEntity>(model);

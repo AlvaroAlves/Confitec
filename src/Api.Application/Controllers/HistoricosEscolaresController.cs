@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.HistoricosEscolares;
-using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.HistoricosEscolares;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,7 +47,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] HistoricoEscolarDto historicoEscolar){
+        public async Task<ActionResult> Post([FromBody] HistoricoEscolarCreateDto historicoEscolar){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try
@@ -67,7 +64,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] HistoricoEscolarDto historicoEscolar){
+        public async Task<ActionResult> Update([FromBody] HistoricoEscolarUpdateDto historicoEscolar){
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
             try

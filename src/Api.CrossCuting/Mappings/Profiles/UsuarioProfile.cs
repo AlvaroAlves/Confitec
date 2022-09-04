@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Api.Domain.Dtos.Usuarios;
 using Api.Domain.Entities;
 using Api.Domain.Models;
@@ -15,6 +11,8 @@ namespace Api.CrossCuting.Mappings
         {
             //DtoToModel
             CreateMap<UsuarioModel, UsuarioDto>().ReverseMap();
+            CreateMap<UsuarioModel, UsuarioCreateDto>().ReverseMap();
+            CreateMap<UsuarioModel, UsuarioUpdateDto>().ReverseMap();
             //EntityToDto
             CreateMap<UsuarioDto, UsuarioEntity>().ReverseMap();
             CreateMap<UsuarioCreateUpdateResultDto, UsuarioEntity>().ReverseMap();

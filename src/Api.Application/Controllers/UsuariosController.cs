@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Usuarios;
-using Api.Domain.Entities;
 using Api.Domain.Interfaces.Services.Usuarios;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Api.Application.Controllers
 {

@@ -5,10 +5,10 @@ namespace Api.Domain.Dtos.HistoricosEscolares
 {
     public class HistoricoEscolarDto : IDtoBase
     {
-        public string Formato { get; set; }
-        
-        public string Nome { get; set; }
         public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Formato { get; set; }
+        public string HistoricoUrl { get;set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
     }

@@ -13,7 +13,12 @@ namespace Api.Domain.Entities
             get { return _createAt; }
             set { _createAt = (value == null) ? DateTime.UtcNow : value; }
         }
-        public DateTime? UpdateAt { get; set; }
+        private DateTime? _updateAt;
+        public DateTime? UpdateAt 
+        { 
+            get {return _updateAt; } 
+            set { _updateAt = (value==null)? DateTime.UtcNow : value; } 
+        }
         
     }
 }

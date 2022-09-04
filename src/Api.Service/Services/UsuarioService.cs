@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Usuarios;
 using Api.Domain.Entities;
-using Api.Domain.Interfaces;
+using Api.Domain.Interfaces.Repositories;
 using Api.Domain.Interfaces.Services.Usuarios;
 using Api.Domain.Models;
 using AutoMapper;
@@ -11,9 +11,9 @@ namespace Api.Service.Services
 {
     public class UsuarioService : IUsuarioService
     {
-        private IRepository<UsuarioEntity> _repository;
+        private IUsuarioRepository _repository;
         private readonly IMapper _mapper;
-        public UsuarioService(IRepository<UsuarioEntity> repository, IMapper mapper) 
+        public UsuarioService(IUsuarioRepository repository, IMapper mapper) 
         {
             _repository = repository;
             _mapper = mapper;
@@ -25,13 +25,13 @@ namespace Api.Service.Services
 
         public async Task<UsuarioDto> Get(int id)
         {
-            var listEntities = await _repository.GetAsync(); 
+            var listEntities = await _repository.GetCompleteAsync(id); 
             return _mapper.Map<UsuarioDto>(listEntities);
         }
 
         public async Task<IEnumerable<UsuarioDto>> GetAll()
         {
-            var listEntities = await _repository.GetAsync(); 
+            var listEntities = await _repository.GetCompleteAsync(); 
             return _mapper.Map<IEnumerable<UsuarioDto>>(listEntities);
         }
 

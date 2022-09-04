@@ -18,6 +18,8 @@ namespace Api.CrossCuting.Mappings
             CreateMap<HistoricoEscolarCreateUpdateResultDto, HistoricoEscolarEntity>().ReverseMap();
             //ModelToEntity
             CreateMap<HistoricoEscolarModel, HistoricoEscolarEntity>().ReverseMap();
+            //DtoToDto
+            CreateMap<HistoricoEscolarDto, HistoricoEscolarUpdateDto>();
         }
         
     }

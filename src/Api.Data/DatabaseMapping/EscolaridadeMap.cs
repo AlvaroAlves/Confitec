@@ -2,7 +2,7 @@ using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Api.Data.Mapping
+namespace Api.Data.DatabaseMapping
 {
     public class EscolaridadeMap : IEntityTypeConfiguration<EscolaridadeEntity>
     {

@@ -2,7 +2,7 @@ using Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Api.Data.Mapping
+namespace Api.Data.DatabaseMapping
 {
     public class HistoricoEscolarMap : IEntityTypeConfiguration<HistoricoEscolarEntity>
     {
@@ -17,8 +17,8 @@ namespace Api.Data.Mapping
                     .IsRequired()
                     .HasMaxLength(60);
             builder.Property(h => h.Formato)
-                    .IsRequired()
-                    .HasMaxLength(4);
+                    .HasMaxLength(5);
+            
         }
     }
 }

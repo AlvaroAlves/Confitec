@@ -19,5 +19,7 @@ namespace Api.Domain.Dtos.Usuarios
         public string Email { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
+        public int? EscolaridadeId {get;set;}
+        public int? HistoricoEscolarId{get;set;}
     }
 }

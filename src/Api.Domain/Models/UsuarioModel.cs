@@ -2,15 +2,8 @@ using System;
 
 namespace Api.Domain.Models
 {
-    public class UsuarioModel
+    public class UsuarioModel : BaseModel
     {
-        private int _id;
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-        
         private string _nome;
         public string Nome
         {
@@ -39,32 +32,18 @@ namespace Api.Domain.Models
             set { _dataNascimento = value; }
         }
         
-        private int _escolaridadeId;
-        public int EscolaridadeId
+        private int? _escolaridadeId;
+        public int? EscolaridadeId
         {
             get { return _escolaridadeId; }
-            set { _escolaridadeId = value; }
+            set { _escolaridadeId = value == 0 ? null : value; }
         }
         
-        private int _historicoEscolarId;
-        public int HistoricoEscolarId
+        private int? _historicoEscolarId;
+        public int? HistoricoEscolarId
         {
             get { return _historicoEscolarId; }
-            set { _historicoEscolarId = value; }
-        }
-        
-        private DateTime _createAt;
-        public DateTime CreateAt
-        {
-            get { return _createAt; }
-            set { _createAt = value == null ? DateTime.UtcNow : value; }
-        }
-        
-        private DateTime _updateAt;
-        public DateTime UpdateAt
-        {
-            get { return _updateAt; }
-            set { _updateAt = value; }
+            set { _historicoEscolarId = value == 0 ? null : value; }
         }
     }
 }

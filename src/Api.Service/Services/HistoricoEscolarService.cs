@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.HistoricosEscolares;
 using Api.Domain.Entities;
-using Api.Domain.Interfaces;
+using Api.Domain.Interfaces.Repositories;
 using Api.Domain.Interfaces.Services.HistoricosEscolares;
 using Api.Domain.Models;
 using AutoMapper;

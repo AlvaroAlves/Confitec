@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Api.CrossCuting.DependencyInjection;
 using Api.CrossCuting.Mappings;
@@ -24,7 +25,11 @@ namespace application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ConfigureDatabase.UseSqlServer(services);
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
+            ConfigureDatabase.UseSqlServer(services, configuration);
             ConfigureRepository.ConfigureDependenciesRepository(services);
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureMappingProfiles.Configure(services);
